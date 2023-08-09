@@ -1,6 +1,13 @@
 import React from "react";
 
-export default function OrderDetails({ params }) {
+export default function OrderDetails({ params, searchParams }) {
   const { id } = params;
-  return <div>{id}</div>;
+  const { hello } = searchParams;
+
+  console.log(id, hello);
+  return (
+    <div>
+      {id} {hello}
+    </div>
+  );
 }
