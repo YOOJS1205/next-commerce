@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import styles from "./Auth.module.scss";
 
 import Logo from "@/assets/colorful.svg";
+import Loader from "@/components/loader/Loader";
 
 export default function LoginClient() {
   const [email, setEmail] = useState("");
@@ -32,23 +33,28 @@ export default function LoginClient() {
   };
 
   return (
-    <section className={styles.page}>
-      <div className={styles.container}>
-        <h1 className={styles.logo}>
-          <Image src={Logo} priority alt="logo" />
-        </h1>
+    <>
+      <Loader />
+      <section className={styles.page}>
+        <div className={styles.container}>
+          <h1 className={styles.logo}>
+            <Image src={Logo} priority alt="logo" />
+          </h1>
 
-        <form onSubmit={loginUser} className={styles.form}>
-          {/* Input */}
+          <form onSubmit={loginUser} className={styles.form}>
+            {/* Input */}
 
-          <div className={styles.group}>{/* 자동 로그인, 비밀번호 수정 */}</div>
+            <div className={styles.group}>
+              {/* 자동 로그인, 비밀번호 수정 */}
+            </div>
 
-          <div className={styles.buttonGroup}>
-            {/* button */}
-            <div>{/* button */}</div>
-          </div>
-        </form>
-      </div>
-    </section>
+            <div className={styles.buttonGroup}>
+              {/* button */}
+              <div>{/* button */}</div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
   );
 }
